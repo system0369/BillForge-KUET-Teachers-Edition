@@ -1,21 +1,3 @@
-'''      
-         
-         apicall1.py",
-         datasave.py",
-         datashow.py",
-         final3.py
-        "finalgui.py",
-        "emailprint.py",
-        "gui_login.py",
-        "gui_mainscreen.py",
-        "sendmail.py",
-        "yearextractor.py",
-        "tempCodeRunnerFile.py",
-       
- '''     
-        
-      
-
 import apicall1
 import datasave
 import datashow

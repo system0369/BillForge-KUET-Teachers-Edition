@@ -16,7 +16,7 @@ def SM(name,email,opfilepath,yrstr):
   d2=result[2]
   
   if email is not None:
-    # Your code here
+   
    gpath=opfilepath+"/"+name+".xlsx"
    gname=name+".xlsx"
   
@@ -29,28 +29,27 @@ def SM(name,email,opfilepath,yrstr):
    subject = "Bill of"+d1+" "+d2
 
 
-# Create the MIME object
+# Creating the MIME object
    msg = MIMEMultipart()
    msg['From'] = sender_email
    msg['To'] = recipient_email
    msg['Subject'] = subject
 
-# Attach the .doc file
+# Attaching the .doc file
    docx_file_path = gpath
    with open(docx_file_path, 'rb') as file:
     attachment = MIMEApplication(file.read(), _subtype=".xlsx")
     attachment.add_header('Content-Disposition', 'attachment', filename=gname)
     msg.attach(attachment)
 
-# Add the body of the email
    body = "Dear Sir/Madam,Please find attached the bill of "+d1+" "+d2
    msg.attach(MIMEText(body, 'plain'))
 
-# Connect to the SMTP server and send the email
+# Connecting to the SMTP server and sending the email
    try:
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login(sender_email, app_password)  # Use the App Password here
+    server.login(sender_email, app_password)  #  App Password
     server.sendmail(sender_email, recipient_email, msg.as_string())
     server.quit()
     print("Email sent successfully.")
@@ -61,7 +60,6 @@ def SM(name,email,opfilepath,yrstr):
     
     
     
-   # print("The string is not None")
    else:
     print("The string is None")
     
@@ -69,41 +67,3 @@ def SM(name,email,opfilepath,yrstr):
 
 
 
-
-  
-  
-  ''''
-# Email configuration
-  sender_email = "swarajchbiswas11@gmail.com"
-  app_password = "qcmwhqdmutzmnedl"
-  recipient_email = email
-  subject = "Testing email"
-
-# Create the MIME object
-  msg = MIMEMultipart()
-  msg['From'] = sender_email
-  msg['To'] = recipient_email
-  msg['Subject'] = subject
-
-# Attach the .doc file
-  docx_file_path = "Exam Bill Demo LT.docx"
-  with open(docx_file_path, 'rb') as file:
-    attachment = MIMEApplication(file.read(), _subtype="docx")
-    attachment.add_header('Content-Disposition', 'attachment', filename="Exam Bill Demo LT.docx")
-    msg.attach(attachment)
-
-# Add the body of the email
-  body = "Really got my email?"
-  msg.attach(MIMEText(body, 'plain'))
-
-# Connect to the SMTP server and send the email
-  try:
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(sender_email, app_password)  # Use the App Password here
-    server.sendmail(sender_email, recipient_email, msg.as_string())
-    server.quit()
-    print("Email sent successfully.")
-  except Exception as e:
-    print(f"Error: {e}")
-'''

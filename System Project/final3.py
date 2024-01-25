@@ -215,7 +215,6 @@ def convert_to_bangla_year(year):
 def size(mapp):
     ck = 0
     for teacher in TName:
-        # Assuming TName is a list of teachers, you might want to iterate over them
         cccc = mapp.get(teacher, 0)
         if cccc != 0:
         #   print(teacher)
@@ -838,13 +837,11 @@ def excel_add(cteacher):
     
     # Writing BSC ENG Name to the excel file
     
-    for row in sheet.iter_rows(min_row=9, max_row=9, min_col=3, max_col=3):
+    for row in sheet.iter_rows(min_row=9, max_row=30, min_col=3, max_col=3):
         for cell in row:
             cell.value = "বি. এসসি. ইঞ্জি:"
             
-    for row in sheet.iter_rows(min_row=10, max_row=30, min_col=3, max_col=3):
-        for cell in row:
-            cell.value = '"'
+  
             
             
    
